@@ -29,13 +29,25 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-5xl md:text-7xl font-extrabold tracking-tight text-brand-navy dark:text-white mb-6 uppercase"
+              className="text-5xl md:text-7xl font-extrabold tracking-tight text-brand-navy dark:text-white mb-4 uppercase"
             >
               Excellence in <br/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-blue-400">
                 Financial Strategy
               </span>
+              <span className="block text-2xl md:text-3xl mt-4 text-brand-navy dark:text-gray-300 font-semibold normal-case tracking-normal">
+                Led by Rajagopalan KR, ACA | ACMA
+              </span>
             </motion.h1>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.15 }}
+              className="text-2xl md:text-4xl font-serif italic text-brand-blue mb-8 leading-tight drop-shadow-sm"
+            >
+              "We value your values"
+            </motion.div>
             
             <motion.p 
               initial={{ opacity: 0, y: 20 }}

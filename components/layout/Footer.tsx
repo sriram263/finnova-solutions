@@ -52,15 +52,15 @@ export function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 text-brand-blue shrink-0 mt-0.5" />
-                <span className="text-gray-400 text-sm">123 Financial District,<br />Business Park, New Delhi, 110001</span>
+                <span className="text-gray-400 text-sm">8 Kancheepuram,<br />TN, India</span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="h-5 w-5 text-brand-blue shrink-0" />
-                <span className="text-gray-400 text-sm">+91 98765 43210</span>
+                <span className="text-gray-400 text-sm">+91 9444909359</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-brand-blue shrink-0" />
-                <span className="text-gray-400 text-sm">contact@finnovasolutions.com</span>
+                <span className="text-gray-400 text-sm">klrd9444@gmail.com</span>
               </li>
             </ul>
           </div>

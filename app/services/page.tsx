@@ -1,46 +1,55 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FileText, Building2, Briefcase, TrendingUp, ArrowRight, CheckCircle2 } from "lucide-react";
+import { FileText, ClipboardCheck, TrendingUp, Search, Monitor, ArrowRight, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 const services = [
   {
-    id: "audit",
-    title: "Audit & Assurance",
+    id: "statutory-tax-audit",
+    title: "Statutory & Tax Audit",
     icon: FileText,
-    description: "Statutory audits, internal audits, and forensic investigations ensuring absolute compliance and unearthing operational inefficiencies.",
-    features: ["Statutory & Tax Audits", "Forensic Accounting", "Risk Management & Internal Control", "IFRS Implementation"],
+    description: "Expertise in Private Limited companies and non-corporate entities, ensuring meticulous statutory compliance.",
+    features: ["Private Limited Companies", "Non-Corporate Entities", "Tax Audit Structuring", "Regulatory Clearances"],
     color: "bg-blue-50 dark:bg-blue-900/20",
     iconColor: "text-blue-600 dark:text-blue-400"
   },
   {
-    id: "tax",
-    title: "Corporate Taxation",
-    icon: Building2,
-    description: "Strategic tax planning that minimizes liabilities while adhering strictly to domestic and international tax laws.",
-    features: ["Corporate Tax Planning", "International Taxation & Transfer Pricing", "Tax Assessments & Appeals", "Expatriate Taxation"],
+    id: "compliance-reporting",
+    title: "Compliance & Reporting",
+    icon: ClipboardCheck,
+    description: "Specialized in CARO, Accounting Standards, and exhaustive FCRA Compliance for Non-Governmental Organizations.",
+    features: ["CARO Reporting", "Accounting Standards Advisory", "FCRA Compliance for NGOs", "Regulatory Disclosures"],
     color: "bg-indigo-50 dark:bg-indigo-900/20",
     iconColor: "text-indigo-600 dark:text-indigo-400"
   },
   {
-    id: "gst",
-    title: "GST & Indirect Tax",
+    id: "taxation",
+    title: "Taxation",
     icon: TrendingUp,
-    description: "Comprehensive end-to-end GST compliance, automated reconciliation, and highly effective dispute resolution.",
-    features: ["GST Registration & Filing", "ITC Reconciliation", "Customs & Foreign Trade Policy", "Litigation Support"],
+    description: "End-to-end filing of Income Tax, GST, and TDS returns including complex BOA reconciliation.",
+    features: ["Income Tax Filing", "GST Compliance", "TDS Returns", "BOA Reconciliation"],
     color: "bg-cyan-50 dark:bg-cyan-900/20",
     iconColor: "text-cyan-600 dark:text-cyan-400"
   },
   {
-    id: "startup",
-    title: "Startup Advisory",
-    icon: Briefcase,
-    description: "We act as your virtual CFO, structuring equity, managing cap tables, and ensuring VC-level compliance.",
-    features: ["Virtual CFO Services", "Fundraising Support & Due Diligence", "Valuation Services", "ESOP Structuring"],
+    id: "specialized-audits",
+    title: "Specialized Audits",
+    icon: Search,
+    description: "Dedicated Stock Audit, Fixed Asset Verification, and comprehensive Internal Audit for educational institutions.",
+    features: ["Stock Audits", "Fixed Asset Verification", "Internal Audits", "Educational Institutions Focus"],
     color: "bg-emerald-50 dark:bg-emerald-900/20",
     iconColor: "text-emerald-600 dark:text-emerald-400"
+  },
+  {
+    id: "systems-mis",
+    title: "Systems & MIS",
+    icon: Monitor,
+    description: "Proficient exposure in Tally, Netsuite (Oracle ERP), and delivering high-impact MIS preparation for management.",
+    features: ["Tally Systems Integration", "Netsuite (Oracle ERP)", "MIS Preparation", "Reporting Automation"],
+    color: "bg-violet-50 dark:bg-violet-900/20",
+    iconColor: "text-violet-600 dark:text-violet-400"
   }
 ];
 
