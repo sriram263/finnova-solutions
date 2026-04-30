@@ -54,7 +54,7 @@ export function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 text-brand-blue shrink-0 mt-0.5" />
-                <span className="text-gray-400 text-sm">8 Kancheepuram,<br />TN, India</span>
+                <span className="text-gray-400 text-sm">No.22, Sannadhi Street,<br />Varadharaja Perumal Temple,<br />Little Kanchipuram, TN-631 501.</span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="h-5 w-5 text-brand-blue shrink-0" />
@@ -62,7 +62,7 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-brand-blue shrink-0" />
-                <span className="text-gray-400 text-sm">klrd9444@gmail.com</span>
+                <span className="text-gray-400 text-sm">ca.rajagopalan.kr@gmail.com</span>
               </li>
             </ul>
           </div>
