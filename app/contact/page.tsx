@@ -49,6 +49,7 @@ export default function ContactPage() {
               "Phone ": formData.phone || "None",
               "Contact Number": formData.phone || "None"
             }
+            // Update for Vercel sync - 30 April 2026
           ]
         })
       });
@@ -222,23 +223,23 @@ export default function ContactPage() {
               <label className="text-sm font-semibold text-brand-navy dark:text-gray-300">Service Required</label>
               <select
                 name="serviceRequired"
-                  required
-                  value={formData.serviceRequired}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 bg-gray-50 dark:bg-[#000813] border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition-all dark:text-white appearance-none"
-                >
-                  <option value="" disabled>Select a service...</option>
-                  <option value="audit">Audit & Assurance</option>
-                  <option value="income-tax">Income Tax Services</option>
-                  <option value="gst">GST Services</option>
-                  <option value="business-setup">Business Setup & Compliance</option>
-                  <option value="compliance-reporting">Compliance & Reporting</option>
-                  <option value="ngo-fcra">NGOs & FCRA Compliance Services</option>
-                  <option value="systems-mis">Systems & MIS</option>
-                  <option value="specialized-audits">Specialized Audits</option>
-                  <option value="other">Other Inquiry</option>
-                </select>
-              </div>
+                required
+                value={formData.serviceRequired}
+                onChange={handleChange}
+                className="w-full px-4 py-3 bg-gray-50 dark:bg-[#000813] border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition-all dark:text-white appearance-none"
+              >
+                <option value="" disabled>Select a service...</option>
+                <option value="audit">Audit & Assurance</option>
+                <option value="income-tax">Income Tax Services</option>
+                <option value="gst">GST Services</option>
+                <option value="business-setup">Business Setup & Compliance</option>
+                <option value="compliance-reporting">Compliance & Reporting</option>
+                <option value="ngo-fcra">NGOs & FCRA Compliance Services</option>
+                <option value="systems-mis">Systems & MIS</option>
+                <option value="specialized-audits">Specialized Audits</option>
+                <option value="other">Other Inquiry</option>
+              </select>
+            </div>
 
             <div className="space-y-2">
               <label className="text-sm font-semibold text-brand-navy dark:text-gray-300">Service Description</label>
