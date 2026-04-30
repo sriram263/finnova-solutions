@@ -10,6 +10,7 @@ export default function ContactPage() {
     email: "",
     phone: "",
     companyName: "",
+    entity: "",
     serviceRequired: "",
     serviceDescription: ""
   });
@@ -44,10 +45,11 @@ export default function ContactPage() {
               "Service": formData.serviceRequired,
               "Service ": formData.serviceRequired,
               "Service Required": formData.serviceRequired,
-              "Message": formData.serviceDescription,
+              "Message": formData.serviceDescription || "None",
               "Phone": formData.phone || "None",
               "Phone ": formData.phone || "None",
-              "Contact Number": formData.phone || "None"
+              "Contact Number": formData.phone || "None",
+              "Entity": formData.entity
             }
             // Update for Vercel sync - 30 April 2026
           ]
@@ -66,7 +68,7 @@ export default function ContactPage() {
       // Reset after 5 seconds
       setTimeout(() => {
         setIsSubmitted(false);
-        setFormData({ name: "", email: "", phone: "", companyName: "", serviceRequired: "", serviceDescription: "" });
+        setFormData({ name: "", email: "", phone: "", companyName: "", entity: "", serviceRequired: "", serviceDescription: "" });
       }, 5000);
     } catch (error) {
       console.error("Error submitting form:", error);
@@ -219,40 +221,61 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className="space-y-2">
-              <label className="text-sm font-semibold text-brand-navy dark:text-gray-300">Service Required</label>
-              <select
-                name="serviceRequired"
-                required
-                value={formData.serviceRequired}
-                onChange={handleChange}
-                className="w-full px-4 py-3 bg-gray-50 dark:bg-[#000813] border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition-all dark:text-white appearance-none"
-              >
-                <option value="" disabled>Select a service...</option>
-                <option value="audit">Audit & Assurance</option>
-                <option value="income-tax">Income Tax Services</option>
-                <option value="gst">GST Services</option>
-                <option value="business-setup">Business Setup & Compliance</option>
-                <option value="compliance-reporting">Compliance & Reporting</option>
-                <option value="ngo-fcra">NGOs & FCRA Compliance Services</option>
-                <option value="systems-mis">Systems & MIS</option>
-                <option value="specialized-audits">Specialized Audits</option>
-                <option value="other">Other Inquiry</option>
-              </select>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="space-y-2">
+                <label className="text-sm font-semibold text-brand-navy dark:text-gray-300">Who am I?</label>
+                <select
+                  name="entity"
+                  required
+                  value={formData.entity}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 bg-gray-50 dark:bg-[#000813] border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition-all dark:text-white appearance-none"
+                >
+                  <option value="" disabled>Select your entity type...</option>
+                  <option value="Individual">Individual</option>
+                  <option value="Company">Company</option>
+                  <option value="Firm/LLP">Firm/LLP</option>
+                  <option value="Trust/NGOs">Trust/NGOs</option>
+                  <option value="Others">Others</option>
+                </select>
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-sm font-semibold text-brand-navy dark:text-gray-300">Service Required</label>
+                <select
+                  name="serviceRequired"
+                  required
+                  value={formData.serviceRequired}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 bg-gray-50 dark:bg-[#000813] border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition-all dark:text-white appearance-none"
+                >
+                  <option value="" disabled>Select a service...</option>
+                  <option value="audit">Audit & Assurance</option>
+                  <option value="income-tax">Income Tax Services</option>
+                  <option value="gst">GST Services</option>
+                  <option value="business-setup">Business Setup & Compliance</option>
+                  <option value="compliance-reporting">Compliance & Reporting</option>
+                  <option value="ngo-fcra">NGOs & FCRA Compliance Services</option>
+                  <option value="systems-mis">Systems & MIS</option>
+                  <option value="specialized-audits">Specialized Audits</option>
+                  <option value="other">Other Inquiry</option>
+                </select>
+              </div>
             </div>
 
-            <div className="space-y-2">
-              <label className="text-sm font-semibold text-brand-navy dark:text-gray-300">Service Description</label>
-              <textarea
-                required
-                name="serviceDescription"
-                value={formData.serviceDescription}
-                onChange={handleChange}
-                rows={4}
-                className="w-full px-4 py-3 bg-gray-50 dark:bg-[#000813] border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition-all dark:text-white resize-none"
-                placeholder="Briefly describe your requirements..."
-              ></textarea>
-            </div>
+            {formData.serviceRequired === "other" && (
+              <div className="space-y-2">
+                <label className="text-sm font-semibold text-brand-navy dark:text-gray-300">Service Description <span className="text-gray-400 font-normal">(Optional)</span></label>
+                <textarea
+                  name="serviceDescription"
+                  value={formData.serviceDescription}
+                  onChange={handleChange}
+                  rows={4}
+                  className="w-full px-4 py-3 bg-gray-50 dark:bg-[#000813] border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition-all dark:text-white resize-none"
+                  placeholder="Briefly describe your requirements..."
+                ></textarea>
+              </div>
+            )}
 
             <button
               type="submit"
