@@ -40,10 +40,12 @@ export function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-4">Services</h3>
             <ul className="space-y-2">
-              <li><Link href="/services#audit" className="text-gray-400 hover:text-white transition-colors text-sm">Audit & Assurance</Link></li>
-              <li><Link href="/services#tax" className="text-gray-400 hover:text-white transition-colors text-sm">Direct & Indirect Tax (GST)</Link></li>
-              <li><Link href="/services#startup" className="text-gray-400 hover:text-white transition-colors text-sm">Startup Advisory</Link></li>
-              <li><Link href="/services#consulting" className="text-gray-400 hover:text-white transition-colors text-sm">Financial Consulting</Link></li>
+              <li><Link href="/services#statutory-tax-audit" className="text-gray-400 hover:text-white transition-colors text-sm">Audit & Assurance</Link></li>
+              <li><Link href="/services#income-tax-services" className="text-gray-400 hover:text-white transition-colors text-sm">Income Tax Services</Link></li>
+              <li><Link href="/services#gst-services" className="text-gray-400 hover:text-white transition-colors text-sm">GST Services</Link></li>
+              <li><Link href="/services#business-setup-compliance" className="text-gray-400 hover:text-white transition-colors text-sm">Business Setup & Compliance</Link></li>
+              <li><Link href="/services#compliance-reporting" className="text-gray-400 hover:text-white transition-colors text-sm">Compliance & Reporting</Link></li>
+              <li><Link href="/services#ngo-fcra-compliance" className="text-gray-400 hover:text-white transition-colors text-sm">NGOs & FCRA Compliance</Link></li>
             </ul>
           </div>
 

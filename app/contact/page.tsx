@@ -8,27 +8,70 @@ export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    company: "",
-    service: "",
-    message: ""
+    phone: "",
+    companyName: "",
+    serviceRequired: "",
+    serviceDescription: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate API call for Supabase integration later
-    setTimeout(() => {
+
+    try {
+      const sheetdbUrl = process.env.NEXT_PUBLIC_SHEETDB_URL;
+
+      if (!sheetdbUrl) {
+        throw new Error("SheetDB URL is not configured");
+      }
+
+      const response = await fetch(sheetdbUrl, {
+        method: "POST",
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          data: [
+            {
+              "Name": formData.name,
+              "Email": formData.email,
+              "Company": formData.companyName || "None",
+              "Company ": formData.companyName || "None",
+              "Company Name": formData.companyName || "None",
+              "Service": formData.serviceRequired,
+              "Service ": formData.serviceRequired,
+              "Service Required": formData.serviceRequired,
+              "Message": formData.serviceDescription,
+              "Phone": formData.phone || "None",
+              "Phone ": formData.phone || "None",
+              "Contact Number": formData.phone || "None"
+            }
+          ]
+        })
+      });
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error("Submission failed with status:", response.status, errorText);
+        throw new Error("Failed to submit form");
+      }
+
       setIsSubmitting(false);
       setIsSubmitted(true);
+
       // Reset after 5 seconds
       setTimeout(() => {
         setIsSubmitted(false);
-        setFormData({ name: "", email: "", company: "", service: "", message: "" });
+        setFormData({ name: "", email: "", phone: "", companyName: "", serviceRequired: "", serviceDescription: "" });
       }, 5000);
-    }, 1500);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setIsSubmitting(false);
+      alert("There was an error submitting your request. Please try again or contact us directly.");
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -38,9 +81,9 @@ export default function ContactPage() {
   return (
     <div className="pt-12 pb-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-        
+
         {/* Contact Information */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
@@ -61,11 +104,11 @@ export default function ContactPage() {
                 <MapPin className="w-5 h-5 text-brand-blue" />
               </div>
               <div>
-                <h3 className="text-xl font-bold text-brand-navy dark:text-white mb-2">Corporate Headquarters</h3>
+                <h3 className="text-xl font-bold text-brand-navy dark:text-white mb-2">Headquarters</h3>
                 <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                  123 Financial District,<br/>
-                  Business Park, Innovator's Hub,<br/>
-                  New Delhi, 110001
+                  No.22, Sannadhi Street,<br></br>
+                  Varadharaja Perumal Temple,<br></br>
+                  Little Kanchipuram, TN-631 501.
                 </p>
               </div>
             </div>
@@ -76,7 +119,7 @@ export default function ContactPage() {
               </div>
               <div>
                 <h3 className="text-xl font-bold text-brand-navy dark:text-white mb-2">Direct Line</h3>
-                <p className="text-gray-600 dark:text-gray-400 font-medium">+91 98765 43210</p>
+                <p className="text-gray-600 dark:text-gray-400 font-medium">+91 94449 09359</p>
                 <p className="text-sm text-gray-500 mt-1">Available Mon-Fri, 9am - 6pm</p>
               </div>
             </div>
@@ -87,14 +130,14 @@ export default function ContactPage() {
               </div>
               <div>
                 <h3 className="text-xl font-bold text-brand-navy dark:text-white mb-2">Email Contact</h3>
-                <p className="text-brand-blue font-medium hover:underline cursor-pointer">contact@finnovasolutions.com</p>
+                <p className="text-brand-blue font-medium hover:underline cursor-pointer">ca.rajagopalan.kr@gmail.com</p>
               </div>
             </div>
           </div>
         </motion.div>
 
         {/* Contact Form */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -102,7 +145,7 @@ export default function ContactPage() {
         >
           <AnimatePresence>
             {isSubmitted && (
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0 }}
@@ -122,13 +165,13 @@ export default function ContactPage() {
               <Building className="w-6 h-6 text-brand-blue" />
               Request a Consultation
             </h2>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-2">
                 <label className="text-sm font-semibold text-brand-navy dark:text-gray-300">Full Name</label>
-                <input 
+                <input
                   required
-                  type="text" 
+                  type="text"
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
@@ -138,9 +181,9 @@ export default function ContactPage() {
               </div>
               <div className="space-y-2">
                 <label className="text-sm font-semibold text-brand-navy dark:text-gray-300">Work Email</label>
-                <input 
+                <input
                   required
-                  type="email" 
+                  type="email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
@@ -152,41 +195,57 @@ export default function ContactPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-2">
-                <label className="text-sm font-semibold text-brand-navy dark:text-gray-300">Company Name</label>
-                <input 
-                  type="text" 
-                  name="company"
-                  value={formData.company}
+                <label className="text-sm font-semibold text-brand-navy dark:text-gray-300">Company Name <span className="text-gray-400 font-normal">(Optional)</span></label>
+                <input
+                  type="text"
+                  name="companyName"
+                  value={formData.companyName}
                   onChange={handleChange}
                   className="w-full px-4 py-3 bg-gray-50 dark:bg-[#000813] border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition-all dark:text-white"
                   placeholder="Acme Corp"
                 />
               </div>
               <div className="space-y-2">
-                <label className="text-sm font-semibold text-brand-navy dark:text-gray-300">Service Required</label>
-                <select 
-                  name="service"
+                <label className="text-sm font-semibold text-brand-navy dark:text-gray-300">Contact Number <span className="text-gray-400 font-normal">(Optional)</span></label>
+                <input
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 bg-gray-50 dark:bg-[#000813] border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition-all dark:text-white"
+                  placeholder="+91 98765 43210"
+                />
+              </div>
+            </div>
+
+            <div className="space-y-2">
+              <label className="text-sm font-semibold text-brand-navy dark:text-gray-300">Service Required</label>
+              <select
+                name="serviceRequired"
                   required
-                  value={formData.service}
+                  value={formData.serviceRequired}
                   onChange={handleChange}
                   className="w-full px-4 py-3 bg-gray-50 dark:bg-[#000813] border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition-all dark:text-white appearance-none"
                 >
                   <option value="" disabled>Select a service...</option>
                   <option value="audit">Audit & Assurance</option>
-                  <option value="tax">Corporate Taxation</option>
-                  <option value="gst">GST & Indirect Tax</option>
-                  <option value="startup">Startup Advisory</option>
+                  <option value="income-tax">Income Tax Services</option>
+                  <option value="gst">GST Services</option>
+                  <option value="business-setup">Business Setup & Compliance</option>
+                  <option value="compliance-reporting">Compliance & Reporting</option>
+                  <option value="ngo-fcra">NGOs & FCRA Compliance Services</option>
+                  <option value="systems-mis">Systems & MIS</option>
+                  <option value="specialized-audits">Specialized Audits</option>
                   <option value="other">Other Inquiry</option>
                 </select>
               </div>
-            </div>
 
             <div className="space-y-2">
-              <label className="text-sm font-semibold text-brand-navy dark:text-gray-300">Project Details</label>
-              <textarea 
+              <label className="text-sm font-semibold text-brand-navy dark:text-gray-300">Service Description</label>
+              <textarea
                 required
-                name="message"
-                value={formData.message}
+                name="serviceDescription"
+                value={formData.serviceDescription}
                 onChange={handleChange}
                 rows={4}
                 className="w-full px-4 py-3 bg-gray-50 dark:bg-[#000813] border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition-all dark:text-white resize-none"
@@ -194,7 +253,7 @@ export default function ContactPage() {
               ></textarea>
             </div>
 
-            <button 
+            <button
               type="submit"
               disabled={isSubmitting}
               className="w-full px-8 py-4 bg-brand-navy text-white font-bold rounded-xl hover:bg-brand-blue hover:shadow-lg hover:shadow-brand-blue/30 transition-all duration-300 flex items-center justify-center gap-2 group disabled:opacity-70 disabled:cursor-not-allowed"
