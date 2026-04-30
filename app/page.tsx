@@ -1,11 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, ShieldCheck, TrendingUp, Users, Clock } from "lucide-react";
+import { ArrowRight, ShieldCheck, TrendingUp, Users, Clock, Lightbulb, CalendarCheck, Scale, Headphones, Handshake } from "lucide-react";
 import Link from "next/link";
 import { TrustBar } from "@/components/ui/TrustBar";
-import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
-import { TaxTool } from "@/components/ui/TaxTool";
 
 export default function Home() {
   return (
@@ -35,9 +33,6 @@ export default function Home() {
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-blue-400">
                 Financial Strategy
               </span>
-              <span className="block text-2xl md:text-3xl mt-4 text-brand-navy dark:text-gray-300 font-semibold normal-case tracking-normal">
-                Led by Rajagopalan KR, ACA | ACMA
-              </span>
             </motion.h1>
             
             <motion.div
@@ -46,7 +41,7 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.15 }}
               className="text-2xl md:text-4xl font-serif italic text-brand-blue mb-8 leading-tight drop-shadow-sm"
             >
-              "We value your values"
+              &quot;We value your values&quot;
             </motion.div>
             
             <motion.p 
@@ -55,7 +50,7 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-10 max-w-3xl mx-auto font-light"
             >
-              Empowering top-tier organizations and innovative startups with precise tax engineering, forensic auditing, and strategic compliance.
+              Empowering top-tier organizations and innovative startups with precise tax engineering, auditing, and strategic compliance.
             </motion.p>
             
             <motion.div 
@@ -84,41 +79,8 @@ export default function Home() {
       {/* Trust Bar */}
       <TrustBar />
 
-      {/* Our Impact Section */}
-      <section className="py-24 bg-gray-50 dark:bg-[#000813]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-navy dark:text-white mb-4">Measurable National Impact</h2>
-            <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">We don't just balance books; we engineer growth. Our track record speaks for itself.</p>
-          </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center">
-            {[
-              { value: 500, suffix: "+", label: "Enterprise Clients" },
-              { value: 2, suffix: "B+", prefix: "$", label: "Assets Audited" },
-              { value: 99, suffix: "%", label: "Compliance Success" },
-              { value: 50, suffix: "+", label: "Industry Awards" },
-            ].map((stat, i) => (
-              <motion.div 
-                key={i}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="p-6 bg-white dark:bg-[#001224] rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800"
-              >
-                <div className="text-4xl md:text-5xl font-extrabold text-brand-blue mb-2 flex justify-center">
-                  <AnimatedCounter value={stat.value} suffix={stat.suffix} prefix={stat.prefix} />
-                </div>
-                <div className="text-gray-600 dark:text-gray-400 font-medium">{stat.label}</div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Why Choose Us */}
-      <section className="py-24 bg-white dark:bg-[#000c19]">
+      <section className="py-24 bg-gray-50 dark:bg-[#000813]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
             <div className="max-w-2xl">
@@ -132,18 +94,8 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              {
-                icon: ShieldCheck,
-                title: "Bulletproof Compliance",
-                desc: "100% adherence to evolving ICAI and statutory frameworks, mitigating all legal risks."
-              },
-              {
-                icon: TrendingUp,
-                title: "Growth-Centric",
-                desc: "We align financial structures to optimize funding opportunities and operational scaling."
-              },
               {
                 icon: Users,
                 title: "Elite Partner Access",
@@ -153,12 +105,47 @@ export default function Home() {
                 icon: Clock,
                 title: "Proactive Strategy",
                 desc: "We anticipate regulatory changes before they happen, keeping your business steps ahead."
+              },
+              {
+                icon: Lightbulb,
+                title: "Practical & Solution-Oriented Approach",
+                desc: "We go beyond compliance to provide workable, business-friendly solutions aligned with current laws and regulations."
+              },
+              {
+                icon: CalendarCheck,
+                title: "Timely & Reliable Execution",
+                desc: "Strong focus on deadlines, with proactive reminders and structured processes to ensure timely filings and compliance."
+              },
+              {
+                icon: Scale,
+                title: "Ethical & Professional Standards",
+                desc: "Services are delivered in line with the guidelines of the Institute of Chartered Accountants of India, maintaining integrity, confidentiality, and independence."
+              },
+              {
+                icon: Headphones,
+                title: "End-to-End Support",
+                desc: "From registrations and routine compliance to audits and representation, we provide a single point of contact for all professional needs."
+              },
+              {
+                icon: Handshake,
+                title: "Commitment Focused",
+                desc: "We focus on building long-term relationships with our clients based on trust, integrity, and professionalism. We aim to make compliance simple and stress-free, so you can focus on running your business."
+              },
+              {
+                icon: ShieldCheck,
+                title: "Bulletproof Compliance",
+                desc: "100% adherence to evolving ICAI and statutory frameworks, mitigating all legal risks."
+              },
+              {
+                icon: TrendingUp,
+                title: "Growth-Centric",
+                desc: "We align financial structures to optimize funding opportunities and operational scaling."
               }
             ].map((feature, i) => (
               <motion.div
                 key={i}
                 whileHover={{ y: -5 }}
-                className="p-8 rounded-2xl bg-gray-50 dark:bg-[#001224] border border-gray-100 dark:border-gray-800 group hover:border-brand-blue/30 hover:shadow-lg transition-all duration-300"
+                className="p-8 rounded-2xl bg-white dark:bg-[#001224] border border-gray-100 dark:border-gray-800 group hover:border-brand-blue/30 hover:shadow-lg transition-all duration-300"
               >
                 <div className="w-12 h-12 rounded-xl bg-blue-100 dark:bg-brand-blue/20 flex items-center justify-center text-brand-blue mb-6 group-hover:scale-110 transition-transform">
                   <feature.icon className="w-6 h-6" />
@@ -170,21 +157,6 @@ export default function Home() {
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Interactive Tool Preview */}
-      <section className="py-24 bg-gradient-to-br from-[#001F3F] to-[#000813] text-white overflow-hidden relative">
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-blue/20 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">Experience Our Technical Prowess</h2>
-            <p className="text-gray-300 max-w-2xl mx-auto text-lg">
-              Interact with our demonstrative intelligence tools to see how we analyze and optimize complex tax structures.
-            </p>
-          </div>
-          
-          <TaxTool />
         </div>
       </section>
     </div>
