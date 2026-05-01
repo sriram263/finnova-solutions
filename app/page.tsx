@@ -128,24 +128,39 @@ export default function Home() {
       <TrustBar />
 
       {/* Introduction Section */}
-      <section className="py-20 md:py-28 bg-white dark:bg-[#000c19]">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-24 md:py-32 bg-white dark:bg-[#000c19] relative overflow-hidden">
+        {/* Subtle background decoration */}
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-blue/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-400/5 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/3 pointer-events-none"></div>
+
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className="p-8 md:p-12 lg:p-16 rounded-3xl bg-white dark:bg-[#001224] border border-gray-100 dark:border-gray-800 shadow-2xl shadow-blue-900/5 dark:shadow-none relative"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-navy dark:text-white mb-8">
-              Partnering in Your Financial Success
+            {/* Decorative accent */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-brand-blue to-transparent"></div>
+            
+            <h2 className="text-3xl md:text-5xl font-extrabold text-brand-navy dark:text-white mb-10 text-center tracking-tight">
+              Partnering in Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-blue-400">Financial Success</span>
             </h2>
-            <div className="text-gray-600 dark:text-gray-300 text-lg md:text-xl leading-relaxed space-y-6 text-justify md:text-center font-light">
+            
+            <div className="grid grid-cols-1 md:grid-cols-1 gap-8 text-gray-600 dark:text-gray-300 text-lg md:text-xl leading-relaxed font-light text-justify md:text-center">
               <p>
-                We, Finnova Solutions, provide end-to-end services in taxation, audit, and compliance for businesses and individuals. Our approach is built on a strong foundation of technical expertise combined with practical insight. We work closely with our clients to understand their specific needs and provide tailored support at every stage — from setting up a business and managing routine compliance to handling audits, assessments, and advisory matters.
+                We, <span className="font-semibold text-brand-navy dark:text-white">Finnova Solutions</span>, provide end-to-end services in taxation, audit, and compliance for businesses and individuals. Our approach is built on a strong foundation of technical expertise combined with practical insight. We work closely with our clients to understand their specific needs and provide tailored support at every stage — from setting up a business and managing routine compliance to handling audits, assessments, and advisory matters.
               </p>
+              <div className="flex justify-center my-2">
+                <div className="w-16 h-px bg-gray-200 dark:bg-gray-800"></div>
+              </div>
               <p>
                 Our objective is to deliver clarity, reliability, and confidence in all financial and compliance-related areas. Whether you are a startup building your foundation, a growing enterprise managing multiple compliances, or an individual seeking efficient tax planning and filing, we offer structured and dependable support with a strong emphasis on timeliness and accuracy.
               </p>
+              <div className="flex justify-center my-2">
+                <div className="w-16 h-px bg-gray-200 dark:bg-gray-800"></div>
+              </div>
               <p>
                 We believe in building long-term professional relationships based on trust, transparency, and consistent service quality. Every engagement is handled with attention to detail, clear communication, and a commitment to delivering value.
               </p>
