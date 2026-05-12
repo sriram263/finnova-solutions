@@ -16,7 +16,7 @@ const leadership = [
     name: "Balasubramanian G",
     roleTitle: "Leadership",
     qualification: "Chief Executive Officer (CEO)",
-    initials: "B",
+    initials: "BG",
     description: "Experienced in business operations, strategic planning, and organizational management with a focus on sustainable business growth. Skilled in managing client relationships, operational execution, and business development initiatives across dynamic environments. Brings a practical and solution-oriented approach towards leadership, operational efficiency, and long-term value creation. Focused on building scalable and professionally managed business systems.",
     highlights: ["Business Strategy", "Operations Management", "Client Relations", "Growth Planning"]
   },
