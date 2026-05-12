@@ -16,7 +16,7 @@ const services = [
       "Tax Planning & Advisory",
       "Handling Scrutiny, Notices & Appeals",
       "Capital Gains & Investment Advisory",
-      "Presumptive Taxation Advisory (44AD/44ADA)"
+      "Presumptive Taxation Advisory"
     ],
     color: "bg-rose-50 dark:bg-rose-900/20",
     iconColor: "text-rose-600 dark:text-rose-400"
@@ -42,7 +42,7 @@ const services = [
     title: "Audit & Assurance",
     icon: FileText,
     description: "Expertise in Private Limited companies and Non-corporate entities, ensuring meticulous statutory compliance.",
-    features: ["Statutory Audit", "Tax Audit (44AB)", "Bank Branch Audit / Concurrent Audit", "Internal Audit", "Stock & Revenue Audits"],
+    features: ["Statutory Audit", "Tax Audit", "Bank Branch Audit / Concurrent Audit", "Internal Audit", "Stock & Revenue Audits"],
     color: "bg-blue-50 dark:bg-blue-900/20",
     iconColor: "text-blue-600 dark:text-blue-400"
   },
