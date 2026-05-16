@@ -13,20 +13,20 @@ const leadership = [
     highlights: ["Chartered Accountant", "Cost Accountant", "Audit & Assurance", "Business Advisory"]
   },
   {
-    name: "Balasubramanian G",
-    roleTitle: "Leadership",
-    qualification: "Chief Executive Officer (CEO)",
-    initials: "BG",
-    description: "Experienced in business operations, strategic planning, and organizational management with a focus on sustainable business growth. Skilled in managing client relationships, operational execution, and business development initiatives across dynamic environments. Brings a practical and solution-oriented approach towards leadership, operational efficiency, and long-term value creation. Focused on building scalable and professionally managed business systems.",
-    highlights: ["Business Strategy", "Operations Management", "Client Relations", "Growth Planning"]
-  },
-  {
     name: "Anusha Parthasarathy",
     roleTitle: "Leadership",
     qualification: "Dip IFRS | Chief Financial Officer (CFO)",
     initials: "AP",
     description: "Finance professional with expertise in financial reporting, taxation, compliance management, and advisory services. Specialized in IFRS-based reporting, foreign accounts management, international financial compliance, and regulatory support for domestic and international businesses. Experienced in handling audit support, financial analysis, reconciliations, and compliance reporting with a detail-oriented and process-driven approach. Focused on maintaining financial accuracy, transparency, and strong governance practices.",
     highlights: ["Financial Reporting", "IFRS Compliance", "Foreign Accounts", "Tax & Compliance"]
+  },
+  {
+    name: "Balasubramanian G",
+    roleTitle: "Leadership",
+    qualification: "Business Development Executive (BDE)",
+    initials: "BG",
+    description: "Experienced in business operations, strategic planning, and organizational management with a focus on sustainable business growth. Skilled in managing client relationships, operational execution, and business development initiatives across dynamic environments. Brings a practical and solution-oriented approach towards leadership, operational efficiency, and long-term value creation. Focused on building scalable and professionally managed business systems.",
+    highlights: ["Business Strategy", "Operations Management", "Client Relations", "Growth Planning"]
   },
   {
     name: "Sriram S",
